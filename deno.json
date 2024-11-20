@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "exactOptionalPropertyTypes": true,
+    "useUnknownInCatchVariables": true,
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": true
+  },
+  "name": "@dannyden/github-activity",
+  "version": "0.0.0",
+  "license": "MIT",
+  "tasks": {
+    "dev": "deno run --watch main.ts",
+    "start": "deno run main.ts"
+  },
+  "lint": {
+    "rules": {
+      "include": [
+        "camelcase",
+        "no-sync-fn-in-async-fn",
+        "single-var-declarator",
+        "verbatim-module-syntax"
+        // "no-console"
+      ]
+    }
+  },
+  "exports": "./main.ts"
+}
