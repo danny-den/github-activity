@@ -7,7 +7,7 @@
     "noUncheckedIndexedAccess": true
   },
   "name": "@dannyden/github-activity",
-  "version": "0.0.0",
+  "version": "0.1.1",
   "license": "MIT",
   "tasks": {
     "dev": "deno run --watch main.ts",

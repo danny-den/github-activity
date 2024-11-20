@@ -1,6 +1,13 @@
 import { eventTemplate } from "./github.ts";
 import type { Event, EventDic, EventType } from "./github.ts";
 
+/**
+ * Github Activity
+ * {@link https://roadmap.sh/projects/github-user-activity | Roadmap.sh}
+ *
+ * @module
+ */
+
 const count = (events: Event[]): EventDic => {
   const dic = {} as EventDic;
   for (const { type, repo } of events) {
@@ -29,35 +36,37 @@ const format = (events: Event[]): string => {
   return messages.join("\n");
 };
 
-const githubActivity = async () => {
-  try {
-    const username = Deno.args[0];
-    if (!username) {
-      throw new TypeError("No username provided: try github-activity username");
-    }
-
+/**
+ * Fetch github api for events for username.
+ * By default 30 items per page
+ *
+ * @param username A valid github username.
+ * @returns Events such as Push, Commit, PR, etc.
+ */
+const githubActivity = async (username: string): Promise<string> => {
     const url = new URL(`https://api.github.com/users/${username}/events`);
     const response = await fetch(url);
     if (response.status != 200) {
       throw new Error(`Not a user on github: ${username}`);
     }
     const events: Event[] = await response.json();
-    const output = format(events);
-    console.log(output);
-  } catch (e) {
-    if (e instanceof TypeError) {
-      if (e.message.startsWith("Invalid URL")) {
-        console.warn(
-          "Not valid url see: https://developer.mozilla.org/en-US/docs/Web/API/URL/URL",
-        );
-      }
-    }
-    console.error((e as Error).message);
-    Deno.exit(1);
-  }
+    return format(events);
 };
 
 // Learn more at https://docs.deno.com/runtime/manual/examples/module_metadata#concepts
 if (import.meta.main) {
-  await githubActivity();
+  try {
+    const username = Deno.args[0];
+    if (!username) {
+      throw new TypeError("No username provided: try github-activity kamranahmedse");
+    }
+
+    const activity = await githubActivity(username);
+    console.log(activity)
+  } catch (e) {
+    console.error((e as Error).message);
+    Deno.exit(1);
+  }
 }
+
+export default githubActivity
