@@ -1,5 +1,6 @@
 import { format } from "./github.ts";
 import type { Event } from "./github.ts";
+import { parseFlags } from "./utils.ts";
 
 /**
  * Github Activity
@@ -28,6 +29,7 @@ const githubActivity = async (username: string): Promise<string> => {
 // Learn more at https://docs.deno.com/runtime/manual/examples/module_metadata#concepts
 if (import.meta.main) {
   try {
+    parseFlags();
     const username = Deno.args[0];
     if (!username) {
       throw new TypeError(

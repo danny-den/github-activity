@@ -7,7 +7,7 @@
     "noUncheckedIndexedAccess": true
   },
   "name": "@dannyden/github-activity",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "license": "MIT",
   "tasks": {
     "dev": "deno run --watch main.ts",
@@ -20,7 +20,6 @@
         "no-sync-fn-in-async-fn",
         "single-var-declarator",
         "verbatim-module-syntax"
-        // "no-console"
       ]
     }
   },
