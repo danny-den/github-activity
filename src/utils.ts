@@ -1,5 +1,5 @@
 import mod from "../deno.json" with { "type": "json" };
-import { parseArgs } from "jsr:@std/cli/parse-args";
+import { parseArgs } from "@std/cli/parse-args";
 import type { Filter, Format, Options } from "./github.ts";
 
 type ExtendedOptions = Options & { username: string };

@@ -7,7 +7,7 @@
     "noUncheckedIndexedAccess": true
   },
   "name": "@dannyden/github-activity",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "MIT",
   "tasks": {
     "dev": "deno run --watch main.ts",
@@ -26,6 +26,7 @@
   "exports": "./src/main.ts",
   "imports": {
     "@std/assert": "jsr:@std/assert@^1.0.8",
+    "@std/cli": "jsr:@std/cli@^1.0.7",
     "@std/testing": "jsr:@std/testing@^1.0.5"
   }
 }
