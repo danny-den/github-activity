@@ -6,6 +6,15 @@
 Use GitHub API to fetch user activity and display it in the terminal.
 
 Project listed on [Roadmap.sh](https://roadmap.sh/projects/github-user-activity)
+This is the version with extra features, you can see the original
+[here](https://github.com/DanielGuerrero94/github-activity/tree/roadmap-original)
+
+# Extra features
+
+- [x] Filter by event type
+- [x] Format text, table, json, csv
+- [ ] Cache request/response
+- [x] Github api pagination
 
 # Usage
 
