@@ -7,11 +7,18 @@
     "noUncheckedIndexedAccess": true
   },
   "name": "@dannyden/github-activity",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "license": "MIT",
   "tasks": {
     "dev": "deno run --watch main.ts",
-    "start": "deno run main.ts"
+    "start": "deno run main.ts",
+    "format": "deno fmt",
+    "lint": "deno lint",
+    "ship": {
+      "description": "Description",
+      "command": "echo 'Done!'",
+      "dependencies": ["format", "lint"]
+    }
   },
   "lint": {
     "rules": {
